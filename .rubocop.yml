@@ -1,0 +1,8 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 99

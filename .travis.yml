@@ -1,0 +1,27 @@
+language: ruby
+rvm:
+- 2.6.5
+addons:
+  code_climate:
+    repo_token: Q3qNdVshaZK5Mcfvgqve
+env:
+  global:
+  - RUBY_GC_MALLOC_LIMIT=90000000
+  - RUBY_GC_HEAP_FREE_SLOTS=200000
+  - SECURITY_SECRET_TOKEN=Q3qNdVshaZK5Mcfvgqve
+  - secure: 0CFt2DileccC8TzlYtNpSQQKHbMmhzB/OrWeIo9Tra4NiNkUBb0Rsmhh++SedKCSIQvEPR9Zbw/msW2xCYu7du+FMfsGLa9TamANPBEHgh8yK5wiTkL6E+AjW5A+R0NOy8EJh/98daFZ7hpMukqubzWYsFKL/4zVoznvWCuOvvGZhwBVLG8/TkveW1rZbfS2//LSFumTH5Nlbdq97xhWWsBSnaDhow1iLz0UG3Ka+QXGgKwVEL0IcKJlT3BDd3F6B/Gd2gESU5AqW2KhwxlYjz8NHvTxP+U7E+zzqjkmt32lH3uapj5FpKVWjuluLYQFef+yHSHBRO/jGkG6S35/8PHBNArgxNkNroqFLL1TjNbxVNoWT+xUZRnG2obuU38Onb3E3/hhHMnOW7CaFz72rEKBabe1qPHumYX4ElaTlhsS4b7OxfePPfApSvyplZ4bJaaKX/MV6pqRNS3w4ReVBgf4TrB+e3oY8ewr10YtuUVlStbbaghKomlafGnZKf0N8qH4RtMNCzfQTB1NwVT8mOZeSNqAoTNKcBQORQB3nagTI6cvQYL6KaWrLwwimqRgPkGGIGqr6faA15ezgWauBPZ2BwYaZEPX4w78yXC6lLqZ0vHmmD0YX4g4jKEha4w0QhsirMqpcGa6sv2zKFKnUqQa7YTpjPp/9Ng7C37BMZ0=
+services:
+- postgresql
+before_install:
+- gem update --system
+before_script:
+- cp config/database.travis.yml config/database.yml
+- psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api;" -U postgres
+- psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
+- psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
+- bundle exec rake db:migrate
+script:
+- bundle exec rspec spec -fd
+- bundle exec rubocop app spec --format simple
+cache:
+  bundler: true

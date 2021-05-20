@@ -1,7 +1,6 @@
 language: ruby
 rvm:
- - 2.2
- - jruby
+ - 3.0.1
 
 services:
   - postgresql
@@ -12,8 +11,8 @@ before_script:
   - psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
   - psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
+
 script:
-  - bundle exec rspec spec -fd
   - bundle exec rubocop app spec --format simple
 
 cache:

@@ -1,28 +1,20 @@
-# language: ruby
-# rvm:
-#  - 3.0.1
 language: ruby
 rvm:
- - 2.2
- - jruby
+ - 3.0.1
 
-install:
-  - bundle install --path vendor/bundle
-  - npm install
+services:
+  - postgresql
 
-# services:
-#   - postgresql
-
-# before_install:
-#   - gem update --system
-#   - bundle install
-#   - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
-# before_script:
-#   - cp config/database.travis.yml config/database.yml
-#   - psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api';" -U postgres
-#   - psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
-#   - psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
-#   - bundle exec rake db:migrate
+before_install:
+  - gem update --system
+  - bundle install
+  
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
+  - psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
+  - bundle exec rake db:migrate
   
 
 script:

@@ -2,3 +2,13 @@ language: ruby
 rvm:
  - 2.2
  - jruby
+
+services:
+  - postgresql
+
+script:
+  - bundle exec rspec spec -fd
+  - bundle exec rubocop app spec --format simple
+
+cache:
+  bundler: true

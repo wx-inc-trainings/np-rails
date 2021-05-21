@@ -9,6 +9,7 @@ before_install:
   - gem update --system
   - bundle install
 
+  
 # before_script:
 #   - cp config/database.travis.yml config/database.yml
 #   - psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api';" -U postgres

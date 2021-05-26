@@ -33,6 +33,7 @@ class OpenLibraryService
       authors: book_data[:authors]
     }
   end
+
   def type_isbn
     "ISBN:#{@isbn}".to_s
   end

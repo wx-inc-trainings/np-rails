@@ -7,6 +7,9 @@
 # Ignore test folder
 /test
 
+# Ignore .env
+.env
+
 # Ignore bundler config.
 /.bundle
 

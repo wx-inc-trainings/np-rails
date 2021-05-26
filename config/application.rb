@@ -18,6 +18,9 @@ module WbooksApi
         methods: [:get, :post, :options, :delete, :put, :patch]
       end
     end
+
+    Dotenv::Railtie.load
+    BASE_URI = ENV['BASE_URI']
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

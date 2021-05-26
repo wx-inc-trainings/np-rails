@@ -2,14 +2,15 @@ require 'httparty'
 require 'json'
 
 class OpenLibraryService
+  include HTTParty
   include Concurrent::Async
-  def initialize(isbn, base_uri = ENV['BASE_URI'])
+  def initialize(isbn)
     @isbn = isbn
-    @base_uri = base_uri
+    @base_uri = Rails.application.credentials.development[:open_library][:base_uri]
   end
 
-  def book
-    response = HTTParty.get("#{@base_uri}/books?bibkeys=ISBN:#{@isbn}&format=json&jscmd=data")
+  def book_info
+    response = book
     if response.code == 200
       hash = JSON.parse(response.body).with_indifferent_access
       build_response(hash)
@@ -22,6 +23,15 @@ class OpenLibraryService
   end
 
   private
+
+  def book
+    options = {
+      bibkeys: type_isbn,
+      format: 'json',
+      jscmd: 'data'
+    }
+    HTTParty.get(@base_uri, { query: options })
+  end
 
   def build_response(data)
     book_data = data[type_isbn]

@@ -2,8 +2,7 @@ module Api
   module V1
     class OpenLibraryController < ApplicationController
       def show
-        open_library_service = OpenLibraryService.new(params[:id])
-        book = open_library_service.book
+        book = OpenLibraryService.new(params[:isbn]).book_info
         render json: book
       end
     end

@@ -10,21 +10,18 @@ class OpenLibraryService
   end
 
   def book_info
-    response = book
+    response = find_book
     if response.code == 200
       hash = JSON.parse(response.body).with_indifferent_access
-      build_response(hash)
+      { response: build_response(hash), status: response.code }
     else
-      {
-        code: response.code,
-        message: response.message
-      }
+      { status: response.code, response: response.message }
     end
   end
 
   private
 
-  def book
+  def find_book
     options = {
       bibkeys: type_isbn,
       format: 'json',

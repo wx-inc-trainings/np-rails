@@ -11,11 +11,12 @@ class OpenLibraryService
 
   def book_info
     response = find_book
+    if response.parsed_response.blank?
+      return {status: 404, response: {message:'Book not found'} }
+    end
     if response.code == 200
       hash = JSON.parse(response.body).with_indifferent_access
       { response: build_response(hash), status: response.code }
-    else
-      { status: response.code, response: response.message }
     end
   end
 

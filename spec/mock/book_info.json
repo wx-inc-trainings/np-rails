@@ -1,0 +1,12 @@
+{
+    "ISBN":"0385472579",
+    "title":"Zen speaks",
+    "subtitle":"shouts of nothingness",
+    "number_of_pages":159,
+    "authors": [
+        {
+        "url":"https://openlibrary.org/authors/OL223368A/Zhizhong_Cai",
+        "name":"Zhizhong Cai"
+        }
+    ]
+}

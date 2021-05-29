@@ -11,13 +11,10 @@ class OpenLibraryService
 
   def book_info
     response = find_book
-    if response.parsed_response.blank?
-      return {status: 404, response: {message:'Book not found'} }
-    end
-    if response.code == 200
-      hash = JSON.parse(response.body).with_indifferent_access
-      { response: build_response(hash), status: response.code }
-    end
+    return build_bad_response if response.parsed_response.blank?
+
+    hash = JSON.parse(response.body).with_indifferent_access
+    return { response: build_response(hash), status: response.code } if response.code == 200
   end
 
   private
@@ -40,6 +37,10 @@ class OpenLibraryService
       number_of_pages: book_data[:number_of_pages],
       authors: book_data[:authors]
     }
+  end
+
+  def build_bad_response
+    { status: 404, response: { message: 'Book not found' } }
   end
 
   def type_isbn

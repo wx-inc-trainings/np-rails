@@ -17,15 +17,15 @@ class OpenLibraryService
 
   def find_book
     options = {
-      bibkeys: type_isbn,
+      bibkeys: @isbn,
       format: 'json',
       jscmd: 'data'
     }
-    HTTParty.get(URL, { query: options })
+    HTTParty.get(URL, query: options )
   end
 
   def build_response(data)
-    book_data = data[type_isbn]
+    book_data = data[@isbn]
     {
       ISBN: @isbn,
       title: book_data[:title],

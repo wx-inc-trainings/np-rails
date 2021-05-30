@@ -73,7 +73,7 @@ RSpec.configure do |config|
     config.info.version = '1'
 
     config.exporters << Fictium::ApiBlueprintExporter.new
-    Fictium.configuration.api_blueprint.host = Rails.application.credentials.api_url
+    Fictium.configuration.api_blueprint.host = Rails.application.credentials.base_uri
     config.exporters << Fictium::Postman::V2Exporter.new
     Fictium.configuration.postman.api_url = Rails.application.credentials.base_uri
   end

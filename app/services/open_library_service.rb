@@ -6,7 +6,7 @@ class OpenLibraryService
   include Concurrent::Async
   def initialize(isbn)
     @isbn = isbn
-    @base_uri = Rails.application.credentials.base_uri
+    @base_uri = Rails.application.credentials[:base_uri]
   end
 
   def book_info

@@ -21,6 +21,3 @@ before_script:
 script:
   - bundle exec rubocop app spec/controller
   - bundle exec rspec
-
-cache:
-  bundler: true

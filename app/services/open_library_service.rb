@@ -21,7 +21,7 @@ class OpenLibraryService
       format: 'json',
       jscmd: 'data'
     }
-    HTTParty.get(URL, query: options )
+    HTTParty.get(URL, query: options)
   end
 
   def build_response(data)

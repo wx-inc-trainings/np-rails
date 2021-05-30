@@ -19,7 +19,7 @@ before_install:
   
 
 script:
-  - bundle exec rubocop app
+  - bundle exec rubocop app spec/controller
   - bundle exec rspec
 
 cache:

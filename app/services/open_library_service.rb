@@ -1,9 +1,5 @@
-require 'httparty'
-require 'json'
-
 class OpenLibraryService
-  include HTTParty
-  include Concurrent::Async
+  require 'httparty'
   URL = Rails.application.credentials[:base_uri]
   def initialize(isbn)
     @isbn = isbn

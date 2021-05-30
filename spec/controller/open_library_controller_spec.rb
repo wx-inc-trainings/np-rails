@@ -22,9 +22,9 @@ end
 RSpec.describe Api::V1::OpenLibraryController do
   describe 'GET Bad body response' do
     before do
-      stubbed_bad_service = instance_double(OpenLibraryService)
+      @stubbed_bad_service = instance_double(OpenLibraryService)
       allow(stubbed_bad_service).to receive(:book_info).and_return({})
-      allow(OpenLibraryService).to receive(:new).and_return(stubbed_bad_service)
+      allow(OpenLibraryService).to receive(:new).and_return(@stubbed_bad_service)
     end
     describe 'body response' do
       it 'BAD body response' do

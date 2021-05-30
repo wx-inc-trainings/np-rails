@@ -4,9 +4,9 @@ require 'json'
 class OpenLibraryService
   include HTTParty
   include Concurrent::Async
+  URL = Rails.application.credentials[:base_uri]
   def initialize(isbn)
     @isbn = isbn
-    @base_uri = Rails.application.credentials[:base_uri]
   end
 
   def book_info
@@ -25,7 +25,7 @@ class OpenLibraryService
       format: 'json',
       jscmd: 'data'
     }
-    HTTParty.get(@base_uri, { query: options })
+    HTTParty.get(URL, { query: options })
   end
 
   def build_response(data)

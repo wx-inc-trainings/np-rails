@@ -6,7 +6,7 @@ RSpec.describe Api::V1::OpenLibraryController do
     before do
       @stubbed_service = instance_double(OpenLibraryService)
       book_info = File.read('./spec/mock/book_info.json')
-      allow(stubbed_service).to receive(:book_info).and_return(JSON.parse(book_info))
+      allow(@stubbed_service).to receive(:book_info).and_return(JSON.parse(book_info))
       allow(OpenLibraryService).to receive(:new).and_return(@stubbed_service)
     end
     describe 'GET body response' do
@@ -23,7 +23,7 @@ RSpec.describe Api::V1::OpenLibraryController do
   describe 'GET Bad body response' do
     before do
       @stubbed_bad_service = instance_double(OpenLibraryService)
-      allow(stubbed_bad_service).to receive(:book_info).and_return({})
+      allow(@stubbed_bad_service).to receive(:book_info).and_return({})
       allow(OpenLibraryService).to receive(:new).and_return(@stubbed_bad_service)
     end
     describe 'body response' do

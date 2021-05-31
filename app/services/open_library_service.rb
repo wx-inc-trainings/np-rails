@@ -1,8 +1,8 @@
+require 'httparty'
 class OpenLibraryService
-  require 'httparty'
-  URL = Rails.application.credentials[:base_uri]
   def initialize(isbn)
     @isbn = isbn
+    @base_uri = Rails.application.credentials[:base_uri]
   end
 
   def book_info
@@ -10,7 +10,7 @@ class OpenLibraryService
     return build_bad_response if response.parsed_response.blank?
 
     hash = JSON.parse(response.body).with_indifferent_access
-    return { response: build_response(hash), status: response.code } if response.code == 200
+    return build_correct_response(build_book_info(hash), response) if response.code == 200
   end
 
   private
@@ -21,10 +21,10 @@ class OpenLibraryService
       format: 'json',
       jscmd: 'data'
     }
-    HTTParty.get(URL, query: options)
+    HTTParty.get(@base_uri, query: options)
   end
 
-  def build_response(data)
+  def build_book_info(data)
     book_data = data[@isbn]
     {
       ISBN: @isbn,
@@ -35,11 +35,11 @@ class OpenLibraryService
     }
   end
 
-  def build_bad_response
-    { status: 404, response: { message: 'Book not found' } }
+  def build_correct_response(hash, response)
+    { response: hash, status: response.code }
   end
 
-  def type_isbn
-    "ISBN:#{@isbn}".to_s
+  def build_bad_response
+    { status: 404, response: { error: 'Book not found' } }
   end
 end

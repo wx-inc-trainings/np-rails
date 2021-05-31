@@ -4,10 +4,19 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module WbooksApi
+module WbooksApia
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*' 
+        resource '*',
+        headers: :any,
+        expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+        methods: [:get, :post, :options, :delete, :put, :patch]
+      end
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

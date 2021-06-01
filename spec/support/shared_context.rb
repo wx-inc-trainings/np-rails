@@ -1,3 +1,5 @@
+require 'json'
+
 RSpec.configure do |rspec|
   # This config option will be enabled by default on RSpec 4,
   # but for reasons of backwards compatibility, you have to
@@ -9,6 +11,7 @@ RSpec.configure do |rspec|
 end
 
 RSpec.shared_context 'shared stuff', shared_context: :metadata do
+  require 'json'
   def book_correct_info
     book_correct_info = File.read('./spec/mock/book_info.json')
     JSON.parse book_correct_info

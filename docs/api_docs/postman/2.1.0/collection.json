@@ -6,6 +6,131 @@
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
+    {
+      "name": "open library",
+      "description": "Handles API open_library.",
+      "item": [
+        {
+          "id": "get - /api/v1/open_library/{isbn}",
+          "name": "Show details of an open library.",
+          "description": null,
+          "request": {
+            "url": {
+              "raw": "http://localhost:3000/api/v1/open_library/:isbn",
+              "host": [
+                "http://localhost:3000"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "open_library",
+                ":isbn"
+              ],
+              "query": [
 
+              ],
+              "variable": [
+                {
+                  "id": "isbn",
+                  "key": "isbn",
+                  "value": "0385472579"
+                }
+              ]
+            },
+            "method": "get",
+            "description": null,
+            "header": [
+
+            ]
+          },
+          "response": [
+            {
+              "originalRequest": {
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/open_library/:isbn",
+                  "host": [
+                    "http://localhost:3000"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "open_library",
+                    ":isbn"
+                  ],
+                  "query": [
+
+                  ],
+                  "variable": [
+                    {
+                      "id": "isbn",
+                      "key": "isbn",
+                      "value": "0385472579"
+                    }
+                  ]
+                },
+                "method": "get",
+                "description": null,
+                "header": [
+
+                ]
+              },
+              "responseTime": null,
+              "status": "[200] with valid isbn {}",
+              "name": "[200] with valid isbn {}",
+              "code": 200,
+              "body": "{\"ISBN\":\"0385472579\",\"title\":\"Zen speaks\",\"subtitle\":\"shouts of nothingness\",\"number_of_pages\":159,\"authors\":[{\"url\":\"https://openlibrary.org/authors/OL223368A/Zhizhong_Cai\",\"name\":\"Zhizhong Cai\"}]}",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            },
+            {
+              "originalRequest": {
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/open_library/:isbn",
+                  "host": [
+                    "http://localhost:3000"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "open_library",
+                    ":isbn"
+                  ],
+                  "query": [
+
+                  ],
+                  "variable": [
+                    {
+                      "id": "isbn",
+                      "key": "isbn",
+                      "value": "bad_isbn"
+                    }
+                  ]
+                },
+                "method": "get",
+                "description": null,
+                "header": [
+
+                ]
+              },
+              "responseTime": null,
+              "status": "[404] with bad isbn {}",
+              "name": "[404] with bad isbn {}",
+              "code": 404,
+              "body": "{\"error\":\"Book not found\"}",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

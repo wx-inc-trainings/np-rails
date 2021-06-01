@@ -2,4 +2,4 @@ test: &test
   adapter: postgresql
   encoding: utf8
   database: wbooks_api_test
-  username: wbooks-api
+  username: postgres

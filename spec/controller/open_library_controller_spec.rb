@@ -4,8 +4,9 @@ require 'json'
 
 RSpec.describe Api::V1::OpenLibraryController, type: :controller do
   describe action 'GET book info #show' do
+    before { get :show, params: { isbn: isbn } }
     describe example 'with valid isbn' do
-      before { get :show, params: { isbn: '0385472579' } }
+      let(:isbn) { 100 }
       default_example
       include_context 'shared stuff'
       it 'Correct status response' do
@@ -17,7 +18,7 @@ RSpec.describe Api::V1::OpenLibraryController, type: :controller do
     end
 
     describe example 'with bad isbn' do
-      before { get :show, params: { isbn: 'bad_isbn' } }
+      let(:isbn) { 'bad_isbn' }
       default_example
       include_context 'shared stuff'
       it 'HTTP status not found' do

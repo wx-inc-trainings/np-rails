@@ -1,8 +1,8 @@
 require 'httparty'
 class OpenLibraryService
+  BASE_URI = Rails.application.credentials.config[:open_library_api][:base_uri]
   def initialize(isbn)
     @isbn = isbn
-    @base_uri = Rails.application.credentials.config[:open_library_api][:base_uri]
   end
 
   def book_info
@@ -21,7 +21,7 @@ class OpenLibraryService
       format: 'json',
       jscmd: 'data'
     }
-    HTTParty.get(@base_uri, query: options)
+    HTTParty.get(BASE_URI, query: options)
   end
 
   def build_book_info(data)

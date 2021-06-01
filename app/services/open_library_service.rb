@@ -2,7 +2,7 @@ require 'httparty'
 class OpenLibraryService
   def initialize(isbn)
     @isbn = isbn
-    @base_uri = Rails.application.credentials[:base_uri]
+    @base_uri = Rails.application.credentials.config[:open_library_api][:base_uri]
   end
 
   def book_info

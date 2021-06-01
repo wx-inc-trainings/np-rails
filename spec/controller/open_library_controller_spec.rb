@@ -1,14 +1,17 @@
 require 'rails_helper'
-require_relative '../support/shared_context'
 require 'json'
 
 RSpec.describe Api::V1::OpenLibraryController, type: :controller do
   describe action 'GET book info #show' do
-    before { get :show, params: { isbn: isbn } }
+    before do
+      get :show, params: { isbn: isbn }
+    end
     describe example 'with valid isbn' do
-      let(:isbn) { 100 }
       default_example
+
       include_context 'shared stuff'
+
+      let(:isbn) { 100 }
       it 'Correct status response' do
         expect(response.status).to eq(200)
       end
@@ -18,9 +21,11 @@ RSpec.describe Api::V1::OpenLibraryController, type: :controller do
     end
 
     describe example 'with bad isbn' do
-      let(:isbn) { 'bad_isbn' }
       default_example
+
       include_context 'shared stuff'
+
+      let(:isbn) { 'bad_isbn' }
       it 'HTTP status not found' do
         expect(response.status).to eq(404)
       end

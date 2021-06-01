@@ -16,7 +16,7 @@ before_script:
   - psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
   - psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
-  - echo "$RAILS_MASTER_KEY" > config/credentials/test.key
+  - echo "$RAILS_MASTER_KEY" > config/master.key
   
 
 script:

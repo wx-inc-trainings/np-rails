@@ -33,7 +33,7 @@
                 {
                   "id": "isbn",
                   "key": "isbn",
-                  "value": "0385472579"
+                  "value": "100"
                 }
               ]
             },
@@ -64,7 +64,7 @@
                     {
                       "id": "isbn",
                       "key": "isbn",
-                      "value": "0385472579"
+                      "value": "100"
                     }
                   ]
                 },
@@ -78,7 +78,7 @@
               "status": "[200] with valid isbn {}",
               "name": "[200] with valid isbn {}",
               "code": 200,
-              "body": "{\"ISBN\":\"0385472579\",\"title\":\"Zen speaks\",\"subtitle\":\"shouts of nothingness\",\"number_of_pages\":159,\"authors\":[{\"url\":\"https://openlibrary.org/authors/OL223368A/Zhizhong_Cai\",\"name\":\"Zhizhong Cai\"}]}",
+              "body": "{\"ISBN\":\"100\",\"title\":\"Notes on financial rules.\",\"subtitle\":\"Secretariat Training School\",\"number_of_pages\":562,\"authors\":[{\"url\":\"https://openlibrary.org/authors/OL2552A/Secretariat_Training_School_(India)\",\"name\":\"Secretariat Training School (India)\"}]}",
               "header": [
                 {
                   "key": "Content-Type",

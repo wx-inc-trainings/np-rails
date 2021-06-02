@@ -1,25 +1,20 @@
 language: ruby
 rvm:
- - 3.0.1
-
+- 3.0.1
 services:
-  - postgresql
-
+- postgresql
+env:
+  secure: QBLjPeIBrtQhNjaHUiE9sz47vTFf5hReiIWaDVJl25uDRcba/zvbyhc81tp3nB+1H9NjhLt20m7FnMPtUeE022/mhyeGB+27I2knJEksmD3nUCmcJUbtNkY6TGEyHVzYf2jioEritatl7XiIZj8kxH8Zof3il5U4c+2LhXX8UnXi0kRX1zE0NY/nv2SyLGMQ5Rrguj5ewyDOhbPTL7H2a/Zr4flTOxfJjs5r12EJcwEj7aAlPdef0a/m8oxTO6A8d1Bgg79eYVtCl96wySUtXxYzrVVA1LtNuf5esXltbORq8mvtWujo568zw8knhf4EYG7NXi1puI15w8NyOJN3MqqIAhO4i+coUJ7Ww59JRKexNcYJksk39e7g/vQb/qwJ2hVcjr8uW00WGK7loxih/LoT7CJADEHQD1zIPq2hdyd3j8ciE+I7J6JHkRR4qUxGxvfFwrRmVXJZF31V7O7ggHaJdQ5TrN9/GkekdNVg/P5rUrukbzK1H7jq4D1+YjEwO7QhQ3Yx0VoiO5bIxuJ0/SjgHTNvBgQwchKic8X55t0B4HytLmH7+zY8qWXoyhC/VXczcnUnDUAPwAXZYCmAEuuC5fQuQmYPtFuTSh0gil/ZNAyfBwctu3ZRyr2WAuIi5NJe8zhTYR0X4FpN5CJqlBOy2xP4eAtJKHbFcwuFH54=
 before_install:
-  - gem update --system
-  - bundle install
-
-  
-# before_script:
-#   - cp config/database.travis.yml config/database.yml
-#   - psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api';" -U postgres
-#   - psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
-#   - psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
-#   - bundle exec rake db:migrate
-  
-
+- gem update --system
+- bundle install
+before_script:
+- cp config/database.travis.yml config/database.yml
+- psql -c "CREATE USER \"wbooks-api\" WITH PASSWORD 'wbooks-api' CREATEDB;" -U postgres
+- psql -c "DROP DATABASE IF EXISTS \"wbooks_api_test\";" -U postgres
+- psql -c "CREATE DATABASE \"wbooks_api_test\" ENCODING 'utf8';" -U postgres
+- bundle exec rake db:migrate
+- echo "$RAILS_MASTER_KEY" > config/master.key
 script:
-  - bundle exec rubocop app
-
-cache:
-  bundler: true
+- bundle exec rubocop app spec
+- bundle exec rspec

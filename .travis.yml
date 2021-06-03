@@ -17,4 +17,4 @@ before_script:
 - echo "$RAILS_MASTER_KEY" > config/master.key
 script:
 - bundle exec rubocop app spec
-- bundle exec rspec
+- bundle exec rspec spec/controller spec/services

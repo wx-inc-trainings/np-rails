@@ -1,0 +1,130 @@
+{
+  "ISBN:100": {
+    "url": "https://openlibrary.org/books/OL5748154M/Notes_on_financial_rules.",
+    "key": "/books/OL5748154M",
+    "title": "Notes on financial rules.",
+    "subtitle": "Secretariat Training School",
+    "authors": [
+      {
+        "url": "https://openlibrary.org/authors/OL2552A/Secretariat_Training_School_(India)",
+        "name": "Secretariat Training School (India)"
+      }
+    ],
+    "number_of_pages": 562,
+    "pagination": "viii, 562 p.",
+    "identifiers": {
+      "isbn_10": ["1000", "100"],
+      "lccn": [
+        "70926192",
+        "70423439",
+        "77095419",
+        "78061663",
+        "78110450",
+        "79100143",
+        "79100258",
+        "79100691",
+        "79103852",
+        "79105226",
+        "79107795",
+        "79110309",
+        "79111517",
+        "79111525",
+        "79115816",
+        "79117174",
+        "79122221",
+        "79125469",
+        "79622775",
+        "79941354",
+        "79941357",
+        "80105102",
+        "80105901",
+        "80111572",
+        "80127201",
+        "80127301",
+        "89129267",
+        "89129270"
+      ],
+      "openlibrary": ["OL5748154M"]
+    },
+    "classifications": {
+      "lc_classifications": [
+        "JQ249.S2 S42 1971",
+        "LAW <Europe France Meuse 8 Repe 1968>",
+        "MLCM 83/4116 (N)",
+        "MLCM 83/4111 (D)",
+        "MLCS 83/7700 (Z)",
+        "MLCM 83/4722 (Z)",
+        "MLCM 83/4289 (N)",
+        "MLCM 83/4587 (H)",
+        "MLCM 83/4526 (J)",
+        "MLCS 83/7193 (H)",
+        "MLCS 83/8634 (F)",
+        "MLCS 83/7614 (H)",
+        "MLCS 80/3470",
+        "MLCS 80/3472",
+        "MLCS 83/7762 (H)",
+        "MLCS 83/7755 (J)",
+        "MLCM 83/6271 (D)",
+        "MLCS 83/7491 (T)",
+        "MLCM 83/6909 (H)",
+        "MLCL 83/0379 (S)",
+        "MLCM 83/6105 (S)",
+        "MLCM 83/7227 (T)",
+        "MLCM 83/7177 (H)",
+        "MLCM 83/7386 (S)",
+        "MLCS 80/0457",
+        "MLCS 80/0620",
+        "TK454 .T45 1988",
+        "TK153 .E62 1988"
+      ],
+      "dewey_decimal_class": ["354/.54/00123"]
+    },
+    "publish_places": [
+      {
+        "name": "New Delhi]"
+      }
+    ],
+    "publish_date": "1971",
+    "subjects": [
+      {
+        "name": "Officials and employees",
+        "url": "https://openlibrary.org/subjects/officials_and_employees"
+      },
+      {
+        "name": "Salaries",
+        "url": "https://openlibrary.org/subjects/salaries"
+      },
+      {
+        "name": "Court records",
+        "url": "https://openlibrary.org/subjects/court_records"
+      },
+      {
+        "name": "Mathematical models",
+        "url": "https://openlibrary.org/subjects/mathematical_models"
+      },
+      {
+        "name": "Electric circuits",
+        "url": "https://openlibrary.org/subjects/electric_circuits"
+      },
+      {
+        "name": "Integrated circuits",
+        "url": "https://openlibrary.org/subjects/integrated_circuits"
+      },
+      {
+        "name": "Electromechanical devices",
+        "url": "https://openlibrary.org/subjects/electromechanical_devices"
+      },
+      {
+        "name": "Religious issues & debates",
+        "url": "https://openlibrary.org/subjects/religious_issues_&_debates"
+      }
+    ],
+    "subject_places": [
+      {
+        "name": "India",
+        "url": "https://openlibrary.org/subjects/place:india"
+      }
+    ],
+    "notes": "\"STS. 14/8,000.\""
+  }
+}

@@ -13,6 +13,10 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'webmock/rspec'
+# this line prevents the controller tests from failing
+WebMock.allow_net_connect!(net_http_connect_on_start: true)
+
 RSpec.configure do |config|
   # config.before(:each) do
   #   @request.host = 'localhost:3000'

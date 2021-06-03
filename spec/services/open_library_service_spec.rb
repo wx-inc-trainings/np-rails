@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'GET to Openlibrary service' do
+RSpec.describe 'OpenlibraryService', type: :service do
+  let(:url) { "https://www.openlibrary.org/api/books?bibkeys=#{isbn}&format=json&jscmd=data" }
   describe 'success' do
     include_context 'get request success'
     describe 'with correct query' do
       let(:isbn) { '100' }
       it 'correct response' do
-        uri = URI("https://www.openlibrary.org/api/books?bibkeys=#{isbn}&format=json&jscmd=data")
+        uri = URI( url )
         response = Net::HTTP.get(uri)
         expect(response).to have_requested(:get, 'https://www.openlibrary.org/api/books')
           .with(query: { bibkeys: isbn, format: 'json', jscmd: 'data' })
@@ -18,7 +19,7 @@ RSpec.describe 'GET to Openlibrary service' do
     describe 'with bad query' do
       let(:isbn) { 'bad_isbn' }
       it 'a bad body response' do
-        uri = URI("https://www.openlibrary.org/api/books?bibkeys=#{isbn}&format=json&jscmd=data")
+        uri = URI( url )
         response = Net::HTTP.get(uri)
         expect(response).to have_requested(:get, 'https://www.openlibrary.org/api/books')
           .with(query: { bibkeys: isbn, format: 'json', jscmd: 'data' })

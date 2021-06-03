@@ -7,7 +7,7 @@ RSpec.describe 'OpenlibraryService', type: :service do
     describe 'with correct query' do
       let(:isbn) { '100' }
       it 'correct response' do
-        uri = URI( url )
+        uri = URI(url)
         response = Net::HTTP.get(uri)
         expect(response).to have_requested(:get, 'https://www.openlibrary.org/api/books')
           .with(query: { bibkeys: isbn, format: 'json', jscmd: 'data' })
@@ -19,7 +19,7 @@ RSpec.describe 'OpenlibraryService', type: :service do
     describe 'with bad query' do
       let(:isbn) { 'bad_isbn' }
       it 'a bad body response' do
-        uri = URI( url )
+        uri = URI(url)
         response = Net::HTTP.get(uri)
         expect(response).to have_requested(:get, 'https://www.openlibrary.org/api/books')
           .with(query: { bibkeys: isbn, format: 'json', jscmd: 'data' })

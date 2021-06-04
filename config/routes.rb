@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
-      resources :open_library, only: :show, param: :isbn
+      resources :open_library, only: [:index, :show], param: :isbn
     end
   end
 end

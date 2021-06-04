@@ -1,10 +1,9 @@
 module Api
   module V1
     class OpenLibraryController < ApplicationController
-      include Wor::Paginate
+      ISBN = '100'.freeze
       def index
-        @isbn = '100'
-        book_info = OpenLibraryService.new(@isbn).book_info
+        book_info = OpenLibraryService.new(ISBN).book_info
         render_paginated book_info
       end
 

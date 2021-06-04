@@ -6,6 +6,4 @@ Rails.application.routes.draw do
       resources :open_library, only: [:index, :show], param: :isbn
     end
   end
-
-  get 'paginate', to: 'dummy_models#index'
 end

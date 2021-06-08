@@ -134,7 +134,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.5-x86_64-linux)
       racc (~> 1.4)
+    oj (3.11.5)
     orm_adapter (0.5.0)
+    panko_serializer (0.7.5)
+      activesupport
+      oj (~> 3.11.0)
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
@@ -296,6 +300,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   json
   listen (~> 3.3)
+  panko_serializer
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors

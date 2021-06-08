@@ -35,6 +35,7 @@ gem 'rack-cors'
 gem 'httparty'
 gem 'devise'
 gem 'wor-paginate'
+gem "panko_serializer"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

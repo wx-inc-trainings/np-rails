@@ -15,9 +15,13 @@ module Api
 
       def show
         @finded = find_book
-        render_paginated json: Panko::Response.new(
-          success: true,
-          books: Panko::ArraySerializer.new(@finded, each_serializer: BookSerializer)
+        render(
+          json: Panko::Response.create do |r|
+            {
+              success: true,
+              book: r.serializer(@finded, BookSerializer)
+            }
+          end
         )
       end
 

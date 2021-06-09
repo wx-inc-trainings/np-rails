@@ -40,6 +40,8 @@ gem "panko_serializer"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "faker"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -59,8 +61,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  # WebMock
-  
+  gem "database_cleaner"
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 group :development, :test do 
   gem 'rspec-rails', '~> 5.0.0'

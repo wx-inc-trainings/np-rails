@@ -1,34 +1,21 @@
-require_relative '../../serializer/book_serializer'
-
 module Api
   module V1
     class BookController < ApplicationController
       before_action :authenticate_user!
+
       def index
         @books = Book.all
-        render_paginated json: Panko::Response.new(
-          success: true,
-          total_books: @books.count,
-          books: Panko::ArraySerializer.new(@books, each_serializer: BookSerializer)
-        )
+        render_paginated @books, each_serializer: Api::V1::Serializer::BookSerializer
       end
 
       def show
-        @finded = find_book
-        render(
-          json: Panko::Response.create do |r|
-            {
-              success: true,
-              book: r.serializer(@finded, BookSerializer)
-            }
-          end
-        )
+        render json: Api::V1::Serializer::BookSerializer.new.serialize_to_json(find_book)
       end
 
       private
 
       def find_book
-        @book = Book.find(params[:id])
+        @find_book ||= Book.find(params[:id])
       end
     end
   end

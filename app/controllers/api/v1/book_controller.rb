@@ -2,8 +2,7 @@ module Api
   module V1
     class BookController < ApiController
       def index
-        @books = Book.all
-        render_paginated @books, each_serializer: Api::V1::Serializer::BookSerializer
+        render_paginated Book, each_serializer: Api::V1::Serializer::BookSerializer
       end
 
       def show

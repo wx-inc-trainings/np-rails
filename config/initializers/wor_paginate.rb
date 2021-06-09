@@ -10,6 +10,7 @@ Wor::Paginate.configure do |config|
   # For more info about available methods for formatters see:
   # https://github.com/Wolox/wor-paginate/blob/master/lib/wor/paginate/formatters/base.rb
   # config.formatter = Wor::Paginate::Formatters::AmsFormatter
+  config.formatter = Wor::Paginate::Formatters::PankoFormatter
 
   # Configure a default adapter to use on pagination
   # config.default_adapter = nil

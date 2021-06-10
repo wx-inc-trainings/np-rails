@@ -1,16 +1,8 @@
 module Api
   module V1
     class BookController < ApiController
-      BooksReducer = Rack::Reducer.new(
-        Book.all,
-        ->(author:) { where('lower(author) like ?', "%#{author.downcase}%") },
-        ->(gender:) { where('lower(gender) like ?', "%#{gender.downcase}%") },
-        ->(title:) { where('lower(title) like ?', "%#{title.downcase}%") }
-      )
-
       def index
-        books = BooksReducer.apply(params)
-        render_paginated books, each_serializer: Api::V1::Serializer::BookSerializer
+        render_paginated Book::Reducer.apply(params), each_serializer: Api::V1::Serializer::BookSerializer
       end
 
       def show

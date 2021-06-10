@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :open_library, only: [:index, :show], param: :isbn
-      resources :book
+      resources :book, only: %i[index show]
     end
   end
 end

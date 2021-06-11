@@ -37,6 +37,7 @@ gem 'devise'
 gem 'wor-paginate'
 gem "panko_serializer"
 gem 'rack-reducer', require: 'rack/reducer'
+gem 'friendly_id', '~> 5.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -13,7 +13,7 @@ module Api
       private
 
       def find_book
-        @find_book ||= Book.find(params[:id])
+        @find_book ||= Book.friendly.find(params[:id])
       end
     end
   end

@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  extend FriendlyId
   validates :gender, :author, :image, :title, :editor, :year, presence: true
   validates :year, numericality: { only_integer: true }
   validates :image, format: { with: /.*\.(jpeg|jpg|gif|png)/ }
@@ -8,6 +9,5 @@ class Book < ApplicationRecord
     ->(gender:) { where('lower(gender) like ?', "%#{gender.downcase}%") },
     ->(title:) { where('lower(title) like ?', "%#{title.downcase}%") }
   )
-  extend FriendlyId
   friendly_id :title, use: :slugged
 end

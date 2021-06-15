@@ -70,7 +70,7 @@
             "description": "When fetching all books {}",
             "content": {
               "application/json": {
-                "example": "{\"page\":[{\"id\":7,\"author\":\"Mariella Hettinger Sr.\",\"title\":\"The Mirror Crack'd from Side to Side\",\"year\":\"2021\",\"created_at\":\"2021-06-15T19:01:27.547Z\",\"updated_at\":\"2021-06-15T19:01:27.547Z\",\"genre\":\"Folklore\",\"publisher\":\"Black Sparrow Books\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":8,\"author\":\"Hosea Bosco I\",\"title\":\"Things Fall Apart\",\"year\":\"2021\",\"created_at\":\"2021-06-15T19:01:27.551Z\",\"updated_at\":\"2021-06-15T19:01:27.551Z\",\"genre\":\"Suspense/Thriller\",\"publisher\":\"HarperPrism\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":9,\"author\":\"Rep. Shelby Mosciski\",\"title\":\"This Lime Tree Bower\",\"year\":\"2021\",\"created_at\":\"2021-06-15T19:01:27.556Z\",\"updated_at\":\"2021-06-15T19:01:27.556Z\",\"genre\":\"Science fiction\",\"publisher\":\"Orchard Books\",\"image\":{\"url\":\"image.jpg\"}}],\"count\":3,\"total_pages\":1,\"total_count\":3,\"current_page\":1,\"previous_page\":null,\"next_page\":null,\"next_page_url\":null,\"previous_page_url\":null}"
+                "example": "{\"page\":[{\"id\":7,\"author\":\"Garland Hansen\",\"title\":\"The Widening Gyre\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.607Z\",\"updated_at\":\"2021-06-15T22:17:08.607Z\",\"genre\":\"Mythopoeia\",\"publisher\":\"Elsevier\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":8,\"author\":\"Caitlyn Maggio\",\"title\":\"The Proper Study\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.612Z\",\"updated_at\":\"2021-06-15T22:17:08.612Z\",\"genre\":\"Fairy tale\",\"publisher\":\"Tarpaulin Sky Press\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":9,\"author\":\"Mohammad Haley\",\"title\":\"Of Mice and Men\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.616Z\",\"updated_at\":\"2021-06-15T22:17:08.616Z\",\"genre\":\"Fanfiction\",\"publisher\":\"Virago Press\",\"image\":{\"url\":\"image.jpg\"}}],\"count\":3,\"total_pages\":1,\"total_count\":3,\"current_page\":1,\"previous_page\":null,\"next_page\":null,\"next_page_url\":null,\"previous_page_url\":null}"
               }
             },
             "headers": {
@@ -105,7 +105,7 @@
             "description": "When fetching a book {}",
             "content": {
               "application/json": {
-                "example": "{\"id\":12,\"author\":\"Emilio Turner\",\"title\":\"To Say Nothing of the Dog\",\"year\":\"2021\",\"created_at\":\"2021-06-15T19:01:28.446Z\",\"updated_at\":\"2021-06-15T19:01:28.446Z\",\"genre\":\"Fairy tale\",\"publisher\":\"New Directions Publishing\",\"image\":{\"url\":\"image.jpg\"}}\n"
+                "example": "{\"id\":12,\"author\":\"Isela Moen\",\"title\":\"Many Waters\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:09.510Z\",\"updated_at\":\"2021-06-15T22:17:09.510Z\",\"genre\":\"Speech\",\"publisher\":\"Orchard Books\",\"image\":{\"url\":\"image.jpg\"}}\n"
               }
             },
             "headers": {

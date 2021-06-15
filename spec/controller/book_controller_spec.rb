@@ -12,9 +12,6 @@ RSpec.describe Api::V1::BookController, type: :controller do
         get :index
       end
 
-      let(:response_body) do
-        ActiveSupport::JSON.decode(response.body) if response.present? && response.body.present?
-      end
       it 'response is paginated' do
         expect(response_body).to be_paginated
       end

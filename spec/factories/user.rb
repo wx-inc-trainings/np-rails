@@ -1,9 +1,10 @@
 FactoryBot.define do
+  password = Faker::Alphanumeric.alpha(number: 10)
   factory :user do
-    email { 'test@wolox.com.ar' }
-    password { '123123123' }
-    password_confirmation { '123123123' }
-    first_name { 'Test' }
-    last_name { 'TestLastName' }
+    email { Faker::Internet.email }
+    password { password }
+    password_confirmation { password }
+    first_name { Faker::Games::LeagueOfLegends.champion }
+    last_name { Faker::Games::LeagueOfLegends.location }
   end
 end

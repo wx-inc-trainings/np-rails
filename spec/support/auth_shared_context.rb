@@ -4,4 +4,9 @@ RSpec.shared_context 'User Auth' do
   before do
     request.headers.merge!(auth_headers)
   end
+
+  def book_404_response
+    book_404_info = File.read('./spec/mock/book_404_info.json')
+    JSON.parse book_404_info
+  end
 end

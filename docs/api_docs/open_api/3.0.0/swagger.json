@@ -67,10 +67,18 @@
         ],
         "responses": {
           "default": {
-            "description": "When fetching all books {}",
+            "description": "Without login {}",
             "content": {
               "application/json": {
-                "example": "{\"page\":[{\"id\":7,\"author\":\"Garland Hansen\",\"title\":\"The Widening Gyre\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.607Z\",\"updated_at\":\"2021-06-15T22:17:08.607Z\",\"genre\":\"Mythopoeia\",\"publisher\":\"Elsevier\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":8,\"author\":\"Caitlyn Maggio\",\"title\":\"The Proper Study\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.612Z\",\"updated_at\":\"2021-06-15T22:17:08.612Z\",\"genre\":\"Fairy tale\",\"publisher\":\"Tarpaulin Sky Press\",\"image\":{\"url\":\"image.jpg\"}},{\"id\":9,\"author\":\"Mohammad Haley\",\"title\":\"Of Mice and Men\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:08.616Z\",\"updated_at\":\"2021-06-15T22:17:08.616Z\",\"genre\":\"Fanfiction\",\"publisher\":\"Virago Press\",\"image\":{\"url\":\"image.jpg\"}}],\"count\":3,\"total_pages\":1,\"total_count\":3,\"current_page\":1,\"previous_page\":null,\"next_page\":null,\"next_page_url\":null,\"previous_page_url\":null}"
+                "example": "{\"errors\":[\"You need to sign in or sign up before continuing.\"]}"
+              }
+            }
+          },
+          "200": {
+            "description": "When fetching a book {}",
+            "content": {
+              "application/json": {
+                "example": "{\"id\":12,\"author\":\"Laverne Kuphal IV\",\"title\":\"Where Angels Fear to Tread\",\"year\":\"2021\",\"created_at\":\"2021-06-16T20:09:14.376Z\",\"updated_at\":\"2021-06-16T20:09:14.376Z\",\"genre\":\"Narrative nonfiction\",\"publisher\":\"Marshall Pickering\",\"image\":{\"url\":\"image.jpg\"}}\n"
               }
             },
             "headers": {
@@ -101,11 +109,11 @@
               }
             }
           },
-          "200": {
-            "description": "When fetching a book {}",
+          "404": {
+            "description": "book not found {}",
             "content": {
               "application/json": {
-                "example": "{\"id\":12,\"author\":\"Isela Moen\",\"title\":\"Many Waters\",\"year\":\"2021\",\"created_at\":\"2021-06-15T22:17:09.510Z\",\"updated_at\":\"2021-06-15T22:17:09.510Z\",\"genre\":\"Speech\",\"publisher\":\"Orchard Books\",\"image\":{\"url\":\"image.jpg\"}}\n"
+                "example": "{\"error\":\"Book not found\"}"
               }
             },
             "headers": {
@@ -133,6 +141,51 @@
                 "description": "",
                 "schema": {
                 }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/open_library/{isbn}": {
+      "description": "",
+      "get": {
+        "tags": [
+
+        ],
+        "description": "Show details of an open library.",
+        "parameters": [
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "warden",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "isbn",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "with valid isbn {}",
+            "content": {
+              "application/json": {
+                "example": "{\"ISBN\":\"100\",\"title\":\"Notes on financial rules.\",\"subtitle\":\"Secretariat Training School\",\"number_of_pages\":562,\"authors\":[{\"url\":\"https://openlibrary.org/authors/OL2552A/Secretariat_Training_School_(India)\",\"name\":\"Secretariat Training School (India)\"}]}"
+              }
+            }
+          },
+          "404": {
+            "description": "with bad isbn {}",
+            "content": {
+              "application/json": {
+                "example": "{\"error\":\"Book not found\"}"
               }
             }
           }

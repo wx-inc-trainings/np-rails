@@ -78,7 +78,7 @@
             "description": "When fetching a book {}",
             "content": {
               "application/json": {
-                "example": "{\"id\":12,\"author\":\"Laverne Kuphal IV\",\"title\":\"Where Angels Fear to Tread\",\"year\":\"2021\",\"created_at\":\"2021-06-16T20:09:14.376Z\",\"updated_at\":\"2021-06-16T20:09:14.376Z\",\"genre\":\"Narrative nonfiction\",\"publisher\":\"Marshall Pickering\",\"image\":{\"url\":\"image.jpg\"}}\n"
+                "example": "{\"id\":12,\"author\":\"Hermila Crooks\",\"title\":\"The Daffodil Sky\",\"year\":\"2021\",\"created_at\":\"2021-06-17T19:17:17.343Z\",\"updated_at\":\"2021-06-17T19:17:17.343Z\",\"genre\":\"Classic\",\"publisher\":\"Farrar, Straus \\u0026 Giroux\",\"image\":{\"url\":\"image.jpg\"}}\n"
               }
             },
             "headers": {

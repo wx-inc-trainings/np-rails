@@ -7,6 +7,5 @@ FactoryBot.define do
     link { Faker::Internet.url }
     editor { Faker::Book.publisher }
     year { Faker::Number.number(digits: 4) }
-    user_id { Faker::Number.number(digits: 1) }
   end
 end

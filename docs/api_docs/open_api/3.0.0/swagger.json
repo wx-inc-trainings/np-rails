@@ -78,7 +78,7 @@
             "description": "When fetching a book {}",
             "content": {
               "application/json": {
-                "example": "{\"id\":12,\"author\":\"Dorla Lueilwitz\",\"title\":\"This Lime Tree Bower\",\"year\":\"2021\",\"created_at\":\"2021-06-18T01:49:19.036Z\",\"updated_at\":\"2021-06-18T01:49:19.036Z\",\"genre\":\"Western\",\"publisher\":\"Godwit Press\",\"image\":{\"url\":\"image.jpg\"}}\n"
+                "example": "{\"id\":12,\"author\":\"Mrs. Carie Rice\",\"title\":\"The Heart Is Deceitful Above All Things\",\"year\":\"2021\",\"created_at\":\"2021-06-18T15:36:22.676Z\",\"updated_at\":\"2021-06-18T15:36:22.676Z\",\"genre\":\"Mythopoeia\",\"publisher\":\"Caister Academic Press\",\"image\":{\"url\":\"image.jpg\"}}\n"
               }
             },
             "headers": {

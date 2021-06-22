@@ -1,6 +1,7 @@
 module Api
   module V1
-    class BookSuggestionController < ApplicationController
+    class BookSuggestionController < ApiController
+      skip_before_action :authenticate_user!, only: [:create, :index]
       def index
         render json: BookSuggestion.all
       end

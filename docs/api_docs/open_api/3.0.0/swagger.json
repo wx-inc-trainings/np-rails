@@ -7,7 +7,6 @@
   },
   "paths": {
     "/api/v1/book": {
-
       "description": "",
       "get": {
         "tags": [
@@ -62,6 +61,152 @@
             "schema": {
             },
             "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Without login {}",
+            "content": {
+              "application/json": {
+                "example": "{\"errors\":[\"You need to sign in or sign up before continuing.\"]}"
+              }
+            }
+          },
+          "200": {
+            "description": "When fetching a book {}",
+            "content": {
+              "application/json": {
+                "example": "{\"id\":12,\"author\":\"Mrs. Carie Rice\",\"title\":\"The Heart Is Deceitful Above All Things\",\"year\":\"2021\",\"created_at\":\"2021-06-18T15:36:22.676Z\",\"updated_at\":\"2021-06-18T15:36:22.676Z\",\"genre\":\"Mythopoeia\",\"publisher\":\"Caister Academic Press\",\"image\":{\"url\":\"image.jpg\"}}\n"
+
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "book not found {}",
+            "content": {
+              "application/json": {
+                "example": "{\"error\":\"Book not found\"}"
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/book_suggestion": {
+      "description": "",
+      "get": {
+        "tags": [
+
+        ],
+        "description": "Create a new book suggestion.",
+        "parameters": [
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "warden",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Creating a valid BookSuggestion {}",
+            "content": {
+              "text/plain": {
+                "example": ""
+              }
+            }
+          },
+          "200": {
+            "description": "Creating an invalid BookSuggestion {}",
+            "content": {
+              "text/plain": {
+                "example": ""
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/open_library/{isbn}": {
+      "description": "",
+      "get": {
+        "tags": [
+
+        ],
+        "description": "List all available books",
+        "parameters": [
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "warden",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "isbn",
+
             "in": "path",
             "required": true
           }

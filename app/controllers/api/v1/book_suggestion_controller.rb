@@ -6,8 +6,8 @@ module Api
       end
 
       def create
-        @book = BookSuggestion.create(book_params)
-        if @book.valid?
+        @book = BookSuggestion.new(book_params)
+        if @book.save
           render json: @book, status: :created
         else
           render json: creation_failed, status: :bad_request
@@ -17,7 +17,7 @@ module Api
       private
 
       def book_params
-        params.permit(
+        params.require(:book_suggestion).permit(
           :synopsis,
           :price,
           :author,

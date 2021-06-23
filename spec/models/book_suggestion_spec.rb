@@ -8,6 +8,5 @@ RSpec.describe BookSuggestion, type: :model do
     it { is_expected.to validate_presence_of(:link) }
     it { is_expected.to validate_presence_of(:editor) }
     it { is_expected.to validate_presence_of(:year) }
-    it { is_expected.to validate_presence_of(:user_id) }
   end
 end

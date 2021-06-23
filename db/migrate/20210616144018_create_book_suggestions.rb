@@ -8,7 +8,8 @@ class CreateBookSuggestions < ActiveRecord::Migration[6.1]
       t.string :link, :null => false
       t.string :editor, :null => false
       t.string :year, :null => false
-      t.references :user, :null => false, foreign_key: true
+      t.references :user, :null => true, foreign_key: true
+
 
       t.timestamps
     end

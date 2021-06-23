@@ -6,37 +6,286 @@
     "version": "1"
   },
   "paths": {
-    "/api/v1/open_library/{isbn}": {
+    "/api/v1/book": {
       "description": "",
       "get": {
         "tags": [
 
         ],
-        "description": "Show details of an open library.",
+        "description": "List all available books",
         "parameters": [
           {
             "description": "",
             "schema": {
             },
-            "name": "isbn",
+            "name": "warden",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "HTTP_ACCESS_TOKEN",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "HTTP_TOKEN_TYPE",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "HTTP_CLIENT",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "HTTP_EXPIRY",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "HTTP_UID",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "id",
             "in": "path",
             "required": true
           }
         ],
         "responses": {
           "default": {
-            "description": "with valid isbn {}",
+            "description": "Without login {}",
             "content": {
               "application/json": {
-                "example": "{\"ISBN\":\"100\",\"title\":\"Notes on financial rules.\",\"subtitle\":\"Secretariat Training School\",\"number_of_pages\":562,\"authors\":[{\"url\":\"https://openlibrary.org/authors/OL2552A/Secretariat_Training_School_(India)\",\"name\":\"Secretariat Training School (India)\"}]}"
+                "example": "{\"errors\":[\"You need to sign in or sign up before continuing.\"]}"
+              }
+            }
+          },
+          "200": {
+            "description": "When fetching a book {}",
+            "content": {
+              "application/json": {
+                "example": "{\"id\":12,\"author\":\"Micah Pfeffer DDS\",\"title\":\"His Dark Materials\",\"year\":\"2021\",\"created_at\":\"2021-06-22T16:28:54.232Z\",\"updated_at\":\"2021-06-22T16:28:54.232Z\",\"genre\":\"Suspense/Thriller\",\"publisher\":\"Hackett Publishing Company\",\"image\":{\"url\":\"image.jpg\"}}\n"
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
               }
             }
           },
           "404": {
-            "description": "with bad isbn {}",
+            "description": "book not found {}",
             "content": {
               "application/json": {
                 "example": "{\"error\":\"Book not found\"}"
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/book_suggestion": {
+      "description": "",
+      "get": {
+        "tags": [
+
+        ],
+        "description": "Create a new book suggestion.",
+        "parameters": [
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "warden",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Creating a valid BookSuggestion {}",
+            "content": {
+              "text/plain": {
+                "example": ""
+              }
+            }
+          },
+          "200": {
+            "description": "Creating an invalid BookSuggestion {}",
+            "content": {
+              "text/plain": {
+                "example": ""
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/open_library/{isbn}": {
+      "description": "",
+      "get": {
+        "tags": [
+
+        ],
+        "description": "List all available books",
+        "parameters": [
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "warden",
+            "in": "header"
+          },
+          {
+            "description": "",
+            "schema": {
+            },
+            "name": "isbn",
+
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Without login {}",
+            "content": {
+              "application/json": {
+                "example": "{\"errors\":[\"You need to sign in or sign up before continuing.\"]}"
+              }
+            }
+          },
+          "200": {
+            "description": "When fetching a book {}",
+            "content": {
+              "application/json": {
+                "example": "{\"id\":12,\"author\":\"Dr. Francisca Grant\",\"title\":\"No Country for Old Men\",\"year\":\"2021\",\"created_at\":\"2021-06-18T15:11:47.039Z\",\"updated_at\":\"2021-06-18T15:11:47.039Z\",\"genre\":\"Tall tale\",\"publisher\":\"Leafwood Publishers\",\"image\":{\"url\":\"image.jpg\"}}\n"
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "book not found {}",
+            "content": {
+              "application/json": {
+                "example": "{\"error\":\"Book not found\"}"
+              }
+            },
+            "headers": {
+              "access-token": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "token-type": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "client": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "expiry": {
+                "description": "",
+                "schema": {
+                }
+              },
+              "uid": {
+                "description": "",
+                "schema": {
+                }
               }
             }
           }

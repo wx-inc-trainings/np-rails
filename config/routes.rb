@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :open_library, only: [:index, :show], param: :isbn
       resources :book, only: %i[index show]
+      resources :book_suggestion, only: %i[create index]
     end
   end
 end

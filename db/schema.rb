@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_101823) do
+
+ActiveRecord::Schema.define(version: 2021_06_22_143045) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "book_suggestions", force: :cascade do |t|
+    t.string "synopsis"
+    t.float "price"
+    t.string "author", null: false
+    t.string "title", null: false
+    t.string "link", null: false
+    t.string "editor", null: false
+    t.string "year", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_book_suggestions_on_user_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "gender", null: false
@@ -37,6 +53,17 @@ ActiveRecord::Schema.define(version: 2021_06_11_101823) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.date "rent_start", null: false
+    t.date "rent_end", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_rents_on_book_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,5 +96,9 @@ ActiveRecord::Schema.define(version: 2021_06_11_101823) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
+
+  add_foreign_key "book_suggestions", "users"
+  add_foreign_key "rents", "books"
+  add_foreign_key "rents", "users"
 
 end

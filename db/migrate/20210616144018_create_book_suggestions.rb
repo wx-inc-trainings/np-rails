@@ -10,6 +10,7 @@ class CreateBookSuggestions < ActiveRecord::Migration[6.1]
       t.string :year, :null => false
       t.references :user, :null => true, foreign_key: true
 
+
       t.timestamps
     end
   end

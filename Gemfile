@@ -38,10 +38,7 @@ gem 'wor-paginate'
 gem "panko_serializer"
 gem 'rack-reducer', require: 'rack/reducer'
 gem 'friendly_id', '~> 5.4.0'
-<<<<<<< HEAD
-=======
 gem 'validates_timeliness', '~> 6.0.0.alpha1'
->>>>>>> e80317129535637f48bf2697957e4b031095b26c
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

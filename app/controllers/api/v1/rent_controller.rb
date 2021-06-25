@@ -2,7 +2,7 @@ module Api
   module V1
     class RentController < ApiController
       def index
-        render json: rent_response
+        render_paginated rent_response, each_serializer: rent_serializer
       end
 
       def create
@@ -10,7 +10,7 @@ module Api
         if new_rent.save
           render json: rent_serializer.new.serialize_to_json(new_rent), status: :created
         else
-          render json: creation_failed, status: :bad_request
+          render json: new_rent.errors, status: :bad_request
         end
       end
 
@@ -25,16 +25,11 @@ module Api
       end
 
       def rent_response
-        rents = Rent.all
-        Panko::ArraySerializer.new(rents, each_serializer: rent_serializer).to_json
+        Rent.where(user_id: params[:user_id])
       end
 
       def rent_serializer
         Api::V1::Serializer::RentSerializer
-      end
-
-      def creation_failed
-        { error: 'The rent could not be created' }
       end
     end
   end

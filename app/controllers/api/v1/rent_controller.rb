@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RentController < ApiController
+    class RentController < ApplicationController
       def index
         render_paginated rent_response, each_serializer: rent_serializer
       end
@@ -39,14 +39,10 @@ module Api
       def rent_serializer
         Api::V1::Serializer::RentSerializer
       end
-
-      def book
-        Book.all
-      end
-
+      
       def ranking
         ranking = []
-        book.each do |book|
+        Book.all.each do |book|
           ranking << ranking_response(book)
         end
         ranking.sort! { |a, b| b[:times_rented] <=> a[:times_rented] }

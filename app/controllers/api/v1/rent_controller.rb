@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RentController < ApplicationController
+    class RentController < ApiController
       def index
         render_paginated rent_response, each_serializer: rent_serializer
       end
@@ -39,7 +39,7 @@ module Api
       def rent_serializer
         Api::V1::Serializer::RentSerializer
       end
-      
+
       def ranking
         ranking = []
         Book.all.each do |book|
@@ -64,7 +64,7 @@ module Api
       def check_active
         actives = []
         Rent.all.each do |book|
-          if (book.rent_start <= Date.current - 1) and (book.rent_end >= Date.current - 1)
+          if (book.rent_start <= Date.current - 1) && (book.rent_end >= Date.current - 1)
             actives << book
           end
         end

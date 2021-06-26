@@ -72,7 +72,7 @@ module Api
             actives << book
           end
         end
-        actives
+        actives.sort! { |a, b| a[:rent_end] <=> b[:rent_end] }
       end
     end
   end

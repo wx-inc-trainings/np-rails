@@ -15,11 +15,11 @@ module Api
       end
 
       def book_ranking
-        render json: ranking
+        render_paginated Book.rents_ranking, each_serializer: book_serializer
       end
 
       def active
-        render json: check_active
+        render_paginated Rent.rents_order_by_end_date(Date.current), each_serializer: rent_serializer
       end
 
       private
@@ -40,35 +40,8 @@ module Api
         Api::V1::Serializer::RentSerializer
       end
 
-      def ranking
-        ranking = []
-        Book.all.each do |book|
-          ranking << ranking_response(book)
-        end
-        ranking.sort! { |a, b| b[:times_rented] <=> a[:times_rented] }
-      end
-
-      def ranking_response(book)
-        { id: book.id,
-          author: book.author,
-          title: book.title,
-          image: { url: book.image },
-          publisher: book.editor,
-          year: book.year,
-          genre: book.gender,
-          times_rented: Rent.where(book_id: book.id).count,
-          created_at: book.created_at,
-          updated_at: book.updated_at }
-      end
-
-      def check_active
-        actives = []
-        Rent.all.each do |book|
-          if (book.rent_start <= Date.current - 1) && (book.rent_end >= Date.current - 1)
-            actives << book
-          end
-        end
-        actives.sort! { |a, b| a[:rent_end] <=> b[:rent_end] }
+      def book_serializer
+        Api::V1::Serializer::BookSerializer
       end
     end
   end

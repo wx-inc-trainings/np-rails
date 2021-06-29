@@ -12,7 +12,7 @@ class Book < ApplicationRecord
   )
   friendly_id :title, use: :slugged
 
-  scope :rents_ranking, -> {
+  scope :rents_ranking, lambda {
     joins(:rent).group(:id).order('COUNT(book_id) DESC')
   }
 end

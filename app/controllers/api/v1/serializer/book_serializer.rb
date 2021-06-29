@@ -9,6 +9,7 @@ module Api
             url: object.image
           }
         end
+
         def times_rented
           object.rent.count
         end

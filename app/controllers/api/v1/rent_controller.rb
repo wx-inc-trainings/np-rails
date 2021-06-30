@@ -8,7 +8,9 @@ module Api
       end
 
       def create
-        new_rent = current_user.rent.new(rent_params)
+        new_rent = Rent.new(rent_params)
+        new_rent.user_id = params[:user_id]
+        authorize new_rent
         authorize new_rent
         if new_rent.save
           render json: rent_serializer.new.serialize_to_json(new_rent), status: :created

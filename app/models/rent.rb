@@ -6,4 +6,12 @@ class Rent < ApplicationRecord
   validates_date :rent_start, on_or_after: -> { Date.current }
   # Validate that the end date is greater than the start date
   validates_date :rent_end, after: -> { :rent_start }
+
+  scope :rents_order_by_end_date, ->(date) {
+    where('rent_start <= ?', date)
+    .where('rent_end >= ?', date)
+    .where(returned_at: nil)
+    .order(rent_end: :asc)
+  }
+  
 end

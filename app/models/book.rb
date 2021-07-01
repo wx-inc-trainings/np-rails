@@ -11,4 +11,8 @@ class Book < ApplicationRecord
     ->(title:) { where('lower(title) like ?', "%#{title.downcase}%") }
   )
   friendly_id :title, use: :slugged
+
+  scope :rents_ranking, -> {
+    joins(:rent).group(:id).order('COUNT(book_id) DESC')
+  }
 end

@@ -13,7 +13,15 @@ module Api
           render json: new_rent.errors, status: :bad_request
         end
       end
+      
+      def book_ranking
+        render_paginated Book.rents_ranking, each_serializer: book_serializer
+      end
 
+      def active
+        render_paginated Rent.rents_order_by_end_date(Date.current), each_serializer: rent_serializer
+      end
+      
       private
 
       def rent_params
@@ -30,6 +38,10 @@ module Api
 
       def rent_serializer
         Api::V1::Serializer::RentSerializer
+      end
+      
+      def book_serializer
+        Api::V1::Serializer::BookSerializer
       end
     end
   end

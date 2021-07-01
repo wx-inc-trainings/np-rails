@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       resources :open_library, only: [:index, :show], param: :isbn
       resources :book, only: %i[index show]
       resources :book_suggestion, only: %i[create index]
+      resources :user, only: :index do
+        resources :rent, only: %i[create index]
+      end
     end
   end
 end

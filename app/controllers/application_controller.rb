@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  before_action :switch_locale
+  def switch_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
   include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery with: :null_session
   include Wor::Paginate

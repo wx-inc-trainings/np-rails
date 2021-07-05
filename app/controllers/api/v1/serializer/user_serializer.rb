@@ -6,7 +6,7 @@ module Api
         aliases image: :image_url
 
         def rents_counter
-          object.rent.count.to_s
+          object.rent.count
         end
       end
     end

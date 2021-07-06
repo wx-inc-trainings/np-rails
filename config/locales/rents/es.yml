@@ -1,0 +1,12 @@
+es:
+  subject: "Gracias por rentar un libro"
+  title: "Renta creada"
+  create: "Fecha de creacion"
+  detail: "Detalles del libro"
+  book_title: "Titulo"
+  genre: "Genero"
+  author: "Autor"
+  year: "Año"
+  editor: "Editor"
+  start: "Inicio de Renta"
+  end: "Fin de Renta"

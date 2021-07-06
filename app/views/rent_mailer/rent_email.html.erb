@@ -1,17 +1,17 @@
-<h1>Rent created</h1>
+<h1><%= t :title %></h1>
 
-<p>Fecha de creacion: <%= Date.current.strftime('%d-%m-%Y') %></p>
+<p><%= t :create %>: <%= Date.current.strftime('%d-%m-%Y') %></p>
 
-<h3>Detalles del libro</h3>
+<h3><%= t :detail %></h3>
 <ul>
-  <li>Title: <%= @rent.book.title %></li>
-  <li>Genre: <%= @rent.book.gender %></li>
-  <li>Author: <%= @rent.book.author %></li>
-  <li>Year: <%= @rent.book.year %></li>
-  <li>Editor: <%= @rent.book.editor %></li>
+  <li><%= t :book_title %>: <%= @rent.book.title %></li>
+  <li><%= t :genre %>: <%= @rent.book.gender %></li>
+  <li><%= t :author %>: <%= @rent.book.author %></li>
+  <li><%= t :year %>: <%= @rent.book.year %></li>
+  <li><%= t :editor %>: <%= @rent.book.editor %></li>
 </ul>
 
-<p>Rent start: <%= @rent.rent_start.strftime('%d-%m-%Y') %></p>
-<p>Rent end: <%= @rent.rent_end.strftime('%d-%m-%Y') %></p>
+<p><%= t :start %>: <%= @rent.rent_start.strftime('%d-%m-%Y') %></p>
+<p><%= t :end %>: <%= @rent.rent_end.strftime('%d-%m-%Y') %></p>
 
 

@@ -8,8 +8,9 @@ Dotenv::Railtie.load
 module WbooksApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.load_defaults 6.1
-    I18n.locale = :es
+    config.i18n.default_locale = :es
     I18n.available_locales = %i[en es]
     config.middleware.use Rack::Cors do
       allow do

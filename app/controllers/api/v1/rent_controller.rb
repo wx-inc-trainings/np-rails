@@ -48,7 +48,7 @@ module Api
       def rent_serializer
         Api::V1::Serializer::RentSerializer
       end
-    
+      
       def book_serializer
         Api::V1::Serializer::BookSerializer
       end

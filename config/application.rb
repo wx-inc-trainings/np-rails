@@ -3,6 +3,7 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module WbooksApi
   class Application < Rails::Application
@@ -17,6 +18,7 @@ module WbooksApi
         methods: [:get, :post, :options, :delete, :put, :patch]
       end
     end
+    config.active_job.queue_adapter = :sidekiq
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -28,7 +28,7 @@ module Api
         authorize @actives
         render_paginated @actives, each_serializer: rent_serializer
       end
-
+      
       private
 
       def rent_params
@@ -48,7 +48,7 @@ module Api
       def rent_serializer
         Api::V1::Serializer::RentSerializer
       end
-
+      
       def book_serializer
         Api::V1::Serializer::BookSerializer
       end

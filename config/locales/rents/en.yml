@@ -1,0 +1,12 @@
+en:
+  subject: "Thanks for your rent"
+  title: "Rent created"
+  create: "Creation date"
+  detail: "Book details"
+  book_title: "Title"
+  genre: "Gender"
+  author: "Author"
+  year: "Year"
+  editor: "Editor"
+  start: "Rent Start"
+  end: "Rent End"

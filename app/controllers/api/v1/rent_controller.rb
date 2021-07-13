@@ -8,14 +8,12 @@ module Api
       end
 
       def create
-        new_rent = Rent.new(rent_params)
-        new_rent.user_id = params[:user_id]
-        authorize new_rent
-        if new_rent.save
-          RentMailer.with(rent: new_rent).rent_email.deliver_now
-          render json: rent_serializer.new.serialize_to_json(new_rent), status: :created
+        rent = new_rent(params[:user_id])
+        authorize rent
+        if rent.save
+          render json: rent_serializer.new.serialize_to_json(rent), status: :created
         else
-          render json: new_rent.errors, status: :bad_request
+          render json: rent.errors, status: :bad_request
         end
       end
 
@@ -30,7 +28,7 @@ module Api
         authorize @actives
         render_paginated @actives, each_serializer: rent_serializer
       end
-
+      
       private
 
       def rent_params
@@ -41,10 +39,16 @@ module Api
         )
       end
 
+      def new_rent(user_id)
+        rent = Rent.new(rent_params)
+        rent.user_id = user_id
+        rent
+      end
+
       def rent_serializer
         Api::V1::Serializer::RentSerializer
       end
-
+      
       def book_serializer
         Api::V1::Serializer::BookSerializer
       end

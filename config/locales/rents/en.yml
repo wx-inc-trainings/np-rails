@@ -10,3 +10,6 @@ en:
   editor: "Editor"
   start: "Rent Start"
   end: "Rent End"
+  finished_subject: "Rent finished"
+  finished_body: "Your rent has finished"
+  finished_book: "Rented book"

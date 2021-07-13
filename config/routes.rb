@@ -1,3 +1,6 @@
+require 'sidekiq/web' 
+require 'sidekiq-scheduler/web'
+
 Rails.application.routes.draw do
   root to: 'main#index'
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
@@ -15,4 +18,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  mount Sidekiq::Web => '/sidekiq'
 end

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
       root to: "users#index"
     end
-  # root to: 'main#index'
+  root to: 'main#index'
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
   namespace :api do
     namespace :v1 do

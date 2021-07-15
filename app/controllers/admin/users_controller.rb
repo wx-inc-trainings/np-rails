@@ -7,13 +7,15 @@ module Admin
     #   super
     # end
 
+    def index; end
+
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
     #
-    def find_resource(param)
-      User.find_by!(id: param)
-    end
+    # def find_resource(param)
+    #   User.find_by!(id: param)
+    # end
 
     # The result of this lookup will be available as `requested_resource`
 

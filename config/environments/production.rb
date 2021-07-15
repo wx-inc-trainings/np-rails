@@ -63,7 +63,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "wbooks_api_production"
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => Rails.application.secrets.mailer_user_name,
+    :password => Rails.application.secrets.mailer_password,
+    :address => Rails.application.secrets.mailer_address,
+    :domain => Rails.application.secrets.mailer_domain,
+    :port => Rails.application.secrets.mailer_port,
+    :authentication => :cram_md5
+  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

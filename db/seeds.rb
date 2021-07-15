@@ -4,7 +4,7 @@
   image = Faker::File.file_name(name: 'example', ext: 'jpg')
   title = Faker::Book.title
   editor = Faker::Book.publisher
-  year = Faker::Number.number(digits: 4)
+  year = Faker::Number.within(range: 1800..2021)
   if title.length > 25
     title = "#{title.first(22)}..."
   end

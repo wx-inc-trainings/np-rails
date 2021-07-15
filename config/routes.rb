@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :rents
       resources :book_suggestions
 
-      # get '/admin/users', to: "users#index"
+      get '', to: "users#index"
     end
   root to: 'main#index'
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]

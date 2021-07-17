@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :books
     resources :rents
     resources :book_suggestions
-    
+
     root to: "users#index"
   end
   root to: 'main#index'

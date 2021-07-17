@@ -25,7 +25,7 @@ RSpec.describe Api::V1::BookController, type: :controller do
 
       include_context 'User Auth'
       let!(:book) { create_list(:book, 3) }
-
+      puts :book
       before do
         get :index
       end

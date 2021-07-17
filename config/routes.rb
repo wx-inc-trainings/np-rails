@@ -3,13 +3,13 @@ require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   namespace :admin do
-      root to: "users#index"
+    resources :users
+    resources :books
+    resources :rents
+    resources :book_suggestions
     
-      resources :users
-      resources :books
-      resources :rents
-      resources :book_suggestions
-    end
+    root to: "users#index"
+  end
   root to: 'main#index'
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
   namespace :api do

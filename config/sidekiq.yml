@@ -1,0 +1,5 @@
+:schedule:
+  end_rent_worker:
+    cron: '* 9 * * * America/Argentina/Buenos_Aires'
+    class: EndRentWorker
+    description: "This job will be executed every day at 9:00 am"

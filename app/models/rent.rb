@@ -13,4 +13,6 @@ class Rent < ApplicationRecord
       .where(returned_at: nil)
       .order(rent_end: :asc)
   }
+
+  scope :rent_end, -> { where(rent_end: Date.current).where(returned_at: nil) }
 end

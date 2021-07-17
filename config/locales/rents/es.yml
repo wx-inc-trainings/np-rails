@@ -10,3 +10,7 @@ es:
   editor: "Editor"
   start: "Inicio de Renta"
   end: "Fin de Renta"
+  finished_subject: "Renta finalizada"
+  finished_body: "Su renta finalizo"
+  finished_book: "Libro rentado:"
+

@@ -42,6 +42,7 @@ gem 'validates_timeliness', '~> 6.0.0.alpha1'
 gem "pundit"
 gem 'sidekiq'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'sidekiq-scheduler'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

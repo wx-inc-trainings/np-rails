@@ -45,6 +45,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'sidekiq-scheduler'
 gem "administrate"
 gem 'simplecov', require: false, group: :test
+gem 'slim'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

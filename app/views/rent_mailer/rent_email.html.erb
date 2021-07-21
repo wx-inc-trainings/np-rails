@@ -1,0 +1,15 @@
+<h1><%= t :title %></h1>
+
+<p><%= t :create %>: <%= Date.current.strftime('%d-%m-%Y') %></p>
+
+<h3><%= t :detail %></h3>
+<ul>
+  <li><%= t :book_title %>: <%= @rent.book.title %></li>
+  <li><%= t :genre %>: <%= @rent.book.gender %></li>
+  <li><%= t :author %>: <%= @rent.book.author %></li>
+  <li><%= t :year %>: <%= @rent.book.year %></li>
+  <li><%= t :editor %>: <%= @rent.book.editor %></li>
+</ul>
+
+<p><%= t :start %>: <%= @rent.rent_start.strftime('%d-%m-%Y') %></p>
+<p><%= t :end %>: <%= @rent.rent_end.strftime('%d-%m-%Y') %></p>

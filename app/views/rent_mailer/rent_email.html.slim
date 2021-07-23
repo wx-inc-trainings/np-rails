@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta[http-equiv="Content-Type" content="text/html; charset=utf-8"]
+  body
+    h1 = t('title')
+    p 
+      b = t('create')
+      b = ': '
+      = @rent.created_at.strftime('%d-%m-%Y')
+    h3 = t('detail')
+    ul
+      li 
+        b = t('book_title') 
+        b = ': '
+        = @book.title
+      li 
+        b = t('genre')
+        b = ': '
+        = @book.gender
+      li 
+        b = t('author')
+        b = ': '
+        = @book.author
+      li 
+        b = t('year')
+        b = ': '
+        = @book.year
+      li 
+        b = t('editor')
+        b = ': '
+        = @book.editor
+    p
+      b = t('start')
+      b = ': '
+      = @rent.rent_start.strftime('%d-%m-%Y')
+    p
+      b = t('end')
+      b = ': '
+      = @rent.rent_end.strftime('%d-%m-%Y')
